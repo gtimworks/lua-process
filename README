@@ -1,0 +1,9 @@
+This is a pure lua solution which supports "process" concept.
+
+Each lua code chunk is sandboxed into a co-routine which is called a lua process. The lua process is still non-preemptive. However, there is a CPU limitation. while running the lua process is provided an API to check time slice available. When running time is used up the lua process should yield out. Any process refusing to do so will be killed.
+
+The lua process is also able to create children co-routines. The children co-routines will also use parent's time slice while running.
+
+Sample test code are provided too.
+
+for more details please refer to http://groups.google.com/group/lua-alchemy-dev/browse_thread/thread/ddb0cf936690f051
